@@ -1,0 +1,48 @@
+\documentclass{article}
+
+\usepackage{graphicx}									% Images
+\usepackage[colorlinks=true, linkcolor=black]{hyperref} % Hyperlinks
+
+
+\newcommand{\refarticle}[1]{Article~\ref{#1}}
+\newcommand{\refsection}[1]{Section~\ref{#1}}
+
+\newcommand{\article}[1]{\section{#1}\label{#1}}
+\newcommand{\asection}[1]{\subsection{#1}\label{#1}}
+
+\newcommand{\inputarticle}[1]{\newpage~\input{#1}}
+
+
+\pagestyle{myheadings}
+\markright{{\rm BFHS-Open Constitution \hfill Page }}
+
+\renewcommand*{\thesubsection}{\thesection.\Alph{subsection}}
+
+
+% Title
+
+\title{Benjamin Franklin High School \\ BFHS-Open Constitution}
+\date{Ratified: (UNKNOWN)}
+\author{Last Modified: \today}
+
+
+\begin{document}
+	\maketitle
+	\includegraphics[width=\textwidth]{./assets/logo.png}
+	\newpage
+
+	% Table of contents
+	\tableofcontents
+
+	% Articles
+	\inputarticle{./articles/article-01.tex}
+	\inputarticle{./articles/article-02.tex}
+	\inputarticle{./articles/article-03.tex}
+	\inputarticle{./articles/article-04.tex}
+	\inputarticle{./articles/article-05.tex}
+	\inputarticle{./articles/article-06.tex}
+	\inputarticle{./articles/article-07.tex}
+	\inputarticle{./articles/article-08.tex}
+	\inputarticle{./articles/article-09.tex}
+	\inputarticle{./articles/article-10.tex}
+\end{document}
