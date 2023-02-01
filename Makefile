@@ -2,7 +2,6 @@
 
 format:
 	@echo -e "Formatting latex...\n"
-# Intentionally ignoring ./constitution.tex as the formatter does weird stuff there :(
 	npx prettier -w ./articles/*
 
 build:
