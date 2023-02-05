@@ -1,0 +1,29 @@
+name: Release Constitution PDF
+run-name: ${{ github.event.pull_request.title }}
+on:
+  pull_request:
+    branches: 
+      - main
+    types: [closed]
+
+jobs:
+  Release-PDF:
+    name: Build & Release PDF
+    if: github.event.pull_request.merged == true
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - name: Install Latexmk
+        run: sudo apt-get install -y latexmk texlive-latex-base texlive-latex-extra
+      - name: Generate PDF document
+        run: make build
+      - name: Upload & Release PDF
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          prerelease: false
+          title: "${{ github.event.repository.updated_at}}"
+          files: ./out/constitution.pdf
