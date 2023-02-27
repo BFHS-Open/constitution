@@ -104,7 +104,7 @@ You can check the status of the Github Action [here](../../actions).
 
 ## Contributing:
 
-Follow the contributing guidelines described in Article 9 of the constitution.
+Follow the contributing guidelines described in Article 8 of the constitution.
 
 ## Inspiration
 
