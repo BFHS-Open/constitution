@@ -16,7 +16,7 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v3
       - name: Install Latexmk
-        run: sudo apt-get install -y latexmk texlive-latex-base texlive-latex-extra
+        run: sudo apt-get update && sudo apt-get install -y latexmk texlive-latex-base texlive-latex-extra
       - name: Generate PDF document
         run: make build
       - name: Upload & Release PDF
