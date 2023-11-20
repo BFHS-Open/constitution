@@ -1,4 +1,6 @@
 .PHONY: format build clean rebuild open
+TEX := latexmk
+CONSTITUTION := ./constitution.tex
 
 format:
 	@echo -e "Formatting latex...\n"
@@ -7,18 +9,13 @@ format:
 build:
 	@echo -e "Building pdf...\n"
 	mkdir out
-	latexmk -output-directory=./out -pdf ./constitution.tex -shell-escape
-	@echo -e "\nNow just open ./out/constitution.pdf in your favorite pdf viewer!\n"
+	$(TEX) -output-directory=./out -pdf $(CONSTITUTION) -shell-escape -silent
+	@echo -e "PDF written to ./out/constitution.pdf\n"
 
 clean:
-	@echo -e "Deleting directories...\n"
-	-rm ./out/constitution.aux
-	-rm ./out/constitution.fdb_latexmk
-	-rm ./out/constitution.fls
-	-rm ./out/constitution.log
-	-rm ./out/constitution.out
-	-rm ./out/constitution.pdf
-	-rm ./out/constitution.toc
+	@echo -e "Deleting output files...\n"
+	$(TEX) -CA -output-directory=./out -silent
+	@echo -e "Deleting output directory...\n"
 	-rmdir ./out
 
 rebuild:
